@@ -1,0 +1,35 @@
+# Java in general
+*.class
+
+# Eclipse
+.classpath
+.project
+.settings
+
+# VSCode
+.vscode/
+
+# IntelliJ
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+bin
+
+#Visual Paradigm
+*.vpp.*
+
+#Eclipse Workspace
+.metadata/
+
+Thumbs.db
+
+#Enleve la javadoc de maven
+apidocs/
+testapidocs/

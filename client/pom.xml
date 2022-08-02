@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>tp2dfa_diceforge</groupId>
+		<artifactId>diceforge201920</artifactId>
+		<version>1</version>
+	</parent>
+
+	<artifactId>client</artifactId>
+	<version>1.0</version>
+
+	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>  <!-- éventuellement à changer : localisation des fichiers sources -->
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.6.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>java</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<mainClass>client.Client</mainClass>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId> <!-- usage (le résultat est dans target) : mvn package -->
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>client.Client</mainClass>
+						</manifest>
+					</archive>
+					
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef> <!-- jar-with-dependencies : à ne pas changer -->
+					</descriptorRefs>
+				</configuration>
+				<executions>
+					<execution>
+						<id>single</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>tp2dfa_diceforge</groupId>
+			<artifactId>core</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>tp2dfa_diceforge</groupId>
+			<artifactId>protocol</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+	</dependencies>
+
+</project>
